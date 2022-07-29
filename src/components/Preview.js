@@ -7,30 +7,39 @@ class Preview extends React.Component {
 
     render() {
         let {personal, experienceList, educationList} = this.props.info;
-        console.log(this.props.info.experienceList);
         personal = {
-            firstName: personal.firstName == "" && personal.lastName == "" ? "Saul" : personal.firstName,
-            lastName: personal.firstName == "" && personal.lastName == "" ? "Goodman" : personal.lastName,
+            firstName: personal.firstName + personal.lastName == "" ? "Saul" : personal.firstName,
+            lastName: personal.firstName + personal.lastName == "" ? "Goodman" : personal.lastName,
             city: personal.city == "" ? "Albuquerque" : personal.city,
             state: personal.state == "" ? "New Mexico" : personal.state,
             zip: personal.zip == "" ? "12345" : personal.zip,
             phone: personal.phone == "" ? "505-503-4455" : personal.phone,
             email: personal.email == "" ? "sualgoodman@gmail.com" : personal.email,
         };
-        /*experienceList[0] = {
-            title: experienceList.title == "" ? "Lawyer" : experienceList.title,
-            employer: experienceList.employer == "" ? "HH&M Law Firm" : experienceList.employer,
-            city: experienceList.city == "" ? "Albuquerque" : experienceList.city,
-            state: experienceList.state == "" ? "New Mexico" : experienceList.state,
-            startMonth: experienceList.startMonth == "" ? "Jan" : experienceList.startMonth,
-            startYear: experienceList.startYear == "" ? "2001" : experienceList.startYear,
-            endMonth: experienceList.endMonth == "" ? "Aug" : experienceList.endMonth,
-            endYear: experienceList.endYear == "" ? "2004" : experienceList.endYear,
-            current: experienceList.current,
-            id: experienceList.id
-        };*/
+        const experienceExample = {
+            title: "Lawyer",
+            employer: "HH&M Law Firm",
+            city: "Albuquerque",
+            state: "New Mexico",
+            startMonth: "Jan",
+            startYear: "2001",
+            endMonth: "Aug",
+            endYear: "2004",
+        };
+        const isExperienceEmpty = experienceList[0].title + experienceList[0].employer + experienceList[0].city + experienceList[0].state + experienceList[0].startMonth
+        + experienceList[0].startYear + experienceList[0].endMonth + experienceList[0].endYear == "";
+        const educationExample = {
+            school: "University of American Samoa's",
+            city: "Albuquerque",
+            state: "New Mexico",
+            degree: "",
+            field: "Law",
+            gradMonth: "Aug",
+            gradYear: "2004",
+        };
+        const isEducationEmpty = educationList[0].school + educationList[0].city + educationList[0].state + educationList[0].degree
+        + educationList[0].field + educationList[0].gradMonth + educationList[0].gradYear == "";
 
-        
 
         return (
             <div>
@@ -40,23 +49,34 @@ class Preview extends React.Component {
                 <br />
                 <h2>Experience</h2>
                 <ul>
-                    {experienceList.map(item => 
+                    {isExperienceEmpty 
+                        ? <li className="">
+                            <p>{experienceExample.title} | {experienceExample.employer} - {experienceExample.city}, {experienceExample.state}</p>
+                            <p>{experienceExample.startMonth} {experienceExample.startYear} - {experienceExample.endMonth} {experienceExample.endYear}</p>
+                        </li>
+                        : experienceList.map(item => 
                         <li className="" key={item.id}>
                             <p>{item.title} | {item.employer} - {item.city}, {item.state}</p>
-                            <p>{item.startMonth} {item.startYear} - {item.endMonth} {item.endYear}</p>;
-                        </li>
-                    )}
+                            <p>{item.startMonth} {item.startYear} - {item.endMonth} {item.endYear}</p>
+                        </li>)
+                    }
                 </ul>
                 <br />
                 <h2>Education</h2>
                 <ul>
-                    {educationList.map(item => 
-                        <li key={item.id}>
-                            <p>{item.school} - {item.city}, {item.state}</p>
-                            <p>{item.degree} {item.field}</p>
-                            <p>{item.gradMonth} {item.gradYear}</p>;
-                        </li>
-                    )}
+                    {isEducationEmpty
+                    ? <li>
+                        <p>{educationExample.school} - {educationExample.city}, {educationExample.state}</p>
+                        <p>{educationExample.degree} {educationExample.field}</p>
+                        <p>{educationExample.gradMonth} {educationExample.gradYear}</p>
+                    </li>
+                    : educationList.map(item => 
+                    <li key={item.id}>
+                        <p>{item.school} - {item.city}, {item.state}</p>
+                        <p>{item.degree} {item.field}</p>
+                        <p>{item.gradMonth} {item.gradYear}</p>
+                    </li>)
+                    }
                 </ul>
             </div>
         ); 

@@ -104,13 +104,40 @@ export default class App extends React.Component {
       })
     }, callback);
   }
-  addEducationItem = () => {
+  addEducationItem = (callback) => {
     this.setState({
       educationList: this.state.educationList.concat({
         ...emptyEducation,
         id: uniqid()
       })
-    });
+    }, callback);
+  }
+
+  deleteExperienceItem = (e, callback) => {
+    if(this.state.experienceList.length > 1)
+      this.setState({
+        experienceList: this.state.experienceList.filter(x => x.id !== e.target.parentNode.id)
+      });
+    else 
+      this.setState({
+        experienceList: [{
+          ...emptyExperience,
+          id: uniqid()
+        }]
+      }, callback);
+  }
+  deleteEducationItem = (e, callback) => {
+    if(this.state.educationList.length > 1)
+      this.setState({
+        educationList: this.state.educationList.filter(x => x.id !== e.target.parentNode.id)
+      });
+    else
+      this.setState({
+        educationList: [{
+          ...emptyExperience,
+          id: uniqid()
+        }]
+      }, callback);
   }
 
   backPage = () => {
@@ -141,8 +168,8 @@ export default class App extends React.Component {
         <div className="col-6">
           <div className='form-container'>
             {currentPage == 1 && <Personal info={personal} onChange={this.onPersonalChange} buttons={buttons}/>}
-            {currentPage == 2 && <Experience list={experienceList} onChange={this.onExperienceChange} addItem={this.addExperienceItem} buttons={buttons}/>}
-            {currentPage == 3 && <Education list={educationList} onChange={this.onEducationChange} addItem={this.addEducationItem} buttons={buttons}/>}
+            {currentPage == 2 && <Experience list={experienceList} onChange={this.onExperienceChange} addItem={this.addExperienceItem} deleteItem={this.deleteExperienceItem} buttons={buttons}/>}
+            {currentPage == 3 && <Education list={educationList} onChange={this.onEducationChange} addItem={this.addEducationItem} deleteItem={this.deleteEducationItem} buttons={buttons}/>}
           </div>
         </div>
         <div className="col-6">

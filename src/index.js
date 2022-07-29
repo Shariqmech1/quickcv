@@ -28,3 +28,7 @@ root.render(
 // add descriptions
 // clean code
 // icons for buttons
+// move save button
+
+// DONE:
+// delete item

@@ -15,7 +15,6 @@ class Education extends React.Component {
             editID: e.target.parentNode.id
         });
     }
-
     closeEdit = (e) => {
         e.preventDefault();
         this.setState({
@@ -29,9 +28,19 @@ class Education extends React.Component {
         });
         this.props.addItem(callback);
     }
+    deleteItem = (e) => {
+        if(this.props.list.length > 1)
+            this.props.deleteItem(e);
+        else {
+            const callback = () => this.setState({
+                editID: this.props.list[this.props.list.length-1].id
+            });
+            this.props.deleteItem(e, callback);
+        }
+    }
     
     render() {
-        const {list, onChange, addItem, buttons} = this.props;
+        const {list, onChange, buttons} = this.props;
 
         return (
             <div>
@@ -39,11 +48,11 @@ class Education extends React.Component {
                     if(item.id == this.state.editID)
                         return <EducationForm info={item} onChange={onChange} closeEdit={this.closeEdit} key={item.id} />
                     else
-                        return <EducationItem info={item} openEdit={this.openEdit} key={item.id} />
+                        return <EducationItem info={item} openEdit={this.openEdit} deleteItem={this.deleteItem} key={item.id} />
                 })}
                 <div className="buttons-row">
                     <button onClick={buttons.backPage}>Back</button>
-                    <button onClick={addItem}>Add Education</button>
+                    <button onClick={this.addItem}>Add Education</button>
                     <button onClick={buttons.downloadPDF}>Download</button>
                 </div>
             </div>
