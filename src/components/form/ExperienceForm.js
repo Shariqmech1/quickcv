@@ -35,17 +35,17 @@ const ExperienceForm = ({info, onChange, closeEdit}) => {
                 </div>
                 <div className="col-3">
                     <label>End Date</label>
-                    <DateSelect type="month" name="endMonth" value={info.endMonth} onChange={onChange}/>
+                    <DateSelect type="month" name="endMonth" value={info.endMonth} onChange={onChange} disabled={info.current}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <DateSelect type="year" name="endYear" value={info.endYear} onChange={onChange}/>
+                    <DateSelect type="year" name="endYear" value={info.endYear} onChange={onChange} disabled={info.current}/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-6"></div>
                 <div className="col-6">
-                    <input type="checkbox" id="current" name="current" onChange={onChange}/>
+                    <input type="checkbox" id="current" name="current" onChange={onChange} checked={info.current}/>
                     <label htmlFor="current">I currntly work here</label>
                 </div>
             </div>

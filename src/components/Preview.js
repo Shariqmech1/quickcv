@@ -27,7 +27,7 @@ class Preview extends React.Component {
             endYear: "2004",
         };
         const isExperienceEmpty = experienceList[0].title + experienceList[0].employer + experienceList[0].city + experienceList[0].state + experienceList[0].startMonth
-        + experienceList[0].startYear + experienceList[0].endMonth + experienceList[0].endYear == "";
+        + experienceList[0].startYear + experienceList[0].endMonth + experienceList[0].endYear == "" && !experienceList[0].current;
         const educationExample = {
             school: "University of American Samoa's",
             city: "Albuquerque",
@@ -38,7 +38,7 @@ class Preview extends React.Component {
             gradYear: "2004",
         };
         const isEducationEmpty = educationList[0].school + educationList[0].city + educationList[0].state + educationList[0].degree
-        + educationList[0].field + educationList[0].gradMonth + educationList[0].gradYear == "";
+        + educationList[0].field + educationList[0].gradMonth + educationList[0].gradYear == "" && !educationList[0].current;
 
 
         return (
@@ -57,7 +57,7 @@ class Preview extends React.Component {
                         : experienceList.map(item => 
                         <li className="" key={item.id}>
                             <p>{item.title} | {item.employer} - {item.city}, {item.state}</p>
-                            <p>{item.startMonth} {item.startYear} - {item.endMonth} {item.endYear}</p>
+                            <p>{item.startMonth} {item.startYear} - {item.current ? "Current" : item.endMonth + " " + item.endYear }</p>
                         </li>)
                     }
                 </ul>
@@ -74,7 +74,7 @@ class Preview extends React.Component {
                     <li key={item.id}>
                         <p>{item.school} - {item.city}, {item.state}</p>
                         <p>{item.degree} {item.field}</p>
-                        <p>{item.gradMonth} {item.gradYear}</p>
+                        <p>{item.current ? "Current" : item.gradMonth + " " + item.gradYear }</p>
                     </li>)
                     }
                 </ul>

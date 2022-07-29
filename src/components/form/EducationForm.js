@@ -31,17 +31,17 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                 </div>
                 <div className="col-3">
                     <label>Graduation Date</label>
-                    <DateSelect type="month" name="gradMonth" value={info.gradMonth} onChange={onChange}/>
+                    <DateSelect type="month" name="gradMonth" value={info.gradMonth} onChange={onChange} disabled={info.current}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <DateSelect type="year" name="gradYear" value={info.gradYear} onChange={onChange}/>
+                    <DateSelect type="year" name="gradYear" value={info.gradYear} onChange={onChange} disabled={info.current}/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-6"></div>
                 <div className="col-6">
-                    <input type="checkbox" id="current" name="current" onChange={onChange}/>
+                    <input type="checkbox" id="current" name="current" onChange={onChange} checked={info.current}/>
                     <label htmlFor="current">I currntly attend here</label>
                 </div>
             </div>

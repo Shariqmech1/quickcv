@@ -5,7 +5,7 @@ const EducationItem = ({info, openEdit, deleteItem}) => {
         <div className="item" id={info.id}>
             <h3>{info.school}, {info.degree} {info.field}</h3>
             <p>{info.city}, {info.state}</p>
-            <p>{info.gradMonth} {info.gradYear}</p>
+            <p>{info.current ? "Current" : info.gradMonth + " " + info.gradMonth}</p>
             <button onClick={openEdit}>Edit</button>
             <button onClick={deleteItem}>Delete</button>
         </div>
