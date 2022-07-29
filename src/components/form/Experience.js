@@ -5,9 +5,8 @@ import ExperienceForm from './ExperienceForm';
 class Experience extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.list[0].id);
         this.state = {
-            editID: this.props.list[0].id
+            editID: this.props.list[this.props.list.length-1].id
         };
     }
 

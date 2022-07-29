@@ -8,6 +8,10 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
+li {
+    list-style-type: none;
+}
+
 /* --------------------- */
 
 .row {
@@ -29,4 +33,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.form-container {
+    padding: 20px;
+}
+
+.preview-container {
+    padding: 20px;
+}  
+.preview-container > div {
+    border: 1px solid black;
+    padding: 40px;
 }

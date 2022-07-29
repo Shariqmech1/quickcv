@@ -22,11 +22,9 @@ root.render(
 // TODO:
 // date dropdowns
 // current functionality
-// preview personal
-// preview experience
-// preview education
 // download pdf
-// style css
+// style form
+// style preview
 // add descriptions
 // clean code
 // icons for buttons

@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 import Education from './components/form/Education';
 import Experience from './components/form/Experience';
 import Personal from './components/form/Personal';
+import Preview from './components/Preview';
 import './styles/App.css';
 import './styles/Forms.css';
 
@@ -53,6 +54,7 @@ export default class App extends React.Component {
       currentPage: 1
     }
   }
+  
 
   onPersonalChange = (e) => {
     this.setState({
@@ -145,7 +147,7 @@ export default class App extends React.Component {
         </div>
         <div className="col-6">
           <div className='preview-container'>
-            
+            <Preview info={this.state}/>
           </div>
         </div>
       </div>
