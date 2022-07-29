@@ -134,7 +134,7 @@ export default class App extends React.Component {
     else
       this.setState({
         educationList: [{
-          ...emptyExperience,
+          ...emptyEducation,
           id: uniqid()
         }]
       }, callback);

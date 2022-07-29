@@ -20,7 +20,6 @@ root.render(
 
 
 // TODO:
-// date dropdowns
 // current functionality
 // download pdf
 // style form
@@ -32,3 +31,4 @@ root.render(
 
 // DONE:
 // delete item
+// date dropdowns

@@ -1,4 +1,5 @@
 import React from 'react';
+import DateSelect from './DateSelect';
 
 const ExperienceForm = ({info, onChange, closeEdit}) => {
     return (
@@ -26,27 +27,19 @@ const ExperienceForm = ({info, onChange, closeEdit}) => {
             <div className="row">
                 <div className="col-3">
                     <label>Start Date</label>
-                    <select type="select" id="startMonth" name="startMonth" value={info.startMonth} onChange={onChange}>
-                        <option value="" disabled>Month</option>
-                    </select>
+                    <DateSelect type="month" name="startMonth" value={info.startMonth} onChange={onChange}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <select type="select" id="startYear" name="startYear" value={info.startYear} onChange={onChange}>
-                        <option value="" disabled>Year</option>
-                    </select>
+                    <DateSelect type="year" name="startYear" value={info.startYear} onChange={onChange}/>
                 </div>
                 <div className="col-3">
                     <label>End Date</label>
-                    <select type="select" id="endMonth" name="endMonth" placeholder='Month' value={info.endMonth} onChange={onChange}>
-                        <option value="" disabled>Month</option>
-                    </select>
+                    <DateSelect type="month" name="endMonth" value={info.endMonth} onChange={onChange}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <select type="select" id="endYear" name="endYear" placeholder='Year' value={info.endYear} onChange={onChange}>
-                        <option value="" disabled>Year</option>
-                    </select>
+                    <DateSelect type="year" name="endYear" value={info.endYear} onChange={onChange}/>
                 </div>
             </div>
             <div className="row">

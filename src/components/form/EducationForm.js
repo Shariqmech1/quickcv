@@ -1,4 +1,5 @@
 import React from 'react';
+import DateSelect from './DateSelect';
 
 const EducationForm = ({info, onChange, closeEdit}) => {
     return (
@@ -20,9 +21,7 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                 </div> 
                 <div className="col-6">
                     <label htmlFor="degree">Degree</label>
-                    <select type="select" id="degree" name="degree" value={info.degree} onChange={onChange}>
-                        <option value="" disabled>Select</option>
-                    </select>
+                    <DateSelect type="degree" name="degree" value={info.degree} onChange={onChange}/>
                 </div>
             </div>
             <div className="row">
@@ -32,15 +31,11 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                 </div>
                 <div className="col-3">
                     <label>Graduation Date</label>
-                    <select type="select" id="gradMonth" name="gradMonth" value={info.gradMonth} onChange={onChange}>
-                        <option value="" disabled>Month</option>
-                    </select>
+                    <DateSelect type="month" name="gradMonth" value={info.gradMonth} onChange={onChange}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <select type="select" id="gradYear" name="gradYear" value={info.gradYear} onChange={onChange}>
-                        <option value="" disabled>Year</option>
-                    </select>
+                    <DateSelect type="year" name="gradYear" value={info.gradYear} onChange={onChange}/>
                 </div>
             </div>
             <div className="row">
