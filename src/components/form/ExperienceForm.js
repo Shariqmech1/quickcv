@@ -1,5 +1,5 @@
 import React from 'react';
-import DateSelect from './DateSelect';
+import Select from './Select';
 
 const ExperienceForm = ({info, onChange, closeEdit}) => {
     return (
@@ -27,19 +27,19 @@ const ExperienceForm = ({info, onChange, closeEdit}) => {
             <div className="row">
                 <div className="col-3">
                     <label>Start Date</label>
-                    <DateSelect type="month" name="startMonth" value={info.startMonth} onChange={onChange}/>
+                    <Select type="month" name="startMonth" value={info.startMonth} onChange={onChange}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <DateSelect type="year" name="startYear" value={info.startYear} onChange={onChange}/>
+                    <Select type="year" name="startYear" value={info.startYear} onChange={onChange}/>
                 </div>
                 <div className="col-3">
                     <label>End Date</label>
-                    <DateSelect type="month" name="endMonth" value={info.endMonth} onChange={onChange} disabled={info.current}/>
+                    <Select type="month" name="endMonth" value={info.endMonth} onChange={onChange} disabled={info.current}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <DateSelect type="year" name="endYear" value={info.endYear} onChange={onChange} disabled={info.current}/>
+                    <Select type="year" name="endYear" value={info.endYear} onChange={onChange} disabled={info.current}/>
                 </div>
             </div>
             <div className="row">
@@ -50,7 +50,7 @@ const ExperienceForm = ({info, onChange, closeEdit}) => {
                 </div>
             </div>
             <div>
-                <button type="submit">Save</button>
+                <button className="save-btn" type="submit">Save</button>
             </div>
         </form>
     );

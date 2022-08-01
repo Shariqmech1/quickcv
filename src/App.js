@@ -41,7 +41,8 @@ export default class App extends React.Component {
         state: "",
         zip: "",
         phone: "",
-        email: ""
+        email: "",
+        summary: ""
       },
       experienceList: [{
         ...emptyExperience,
@@ -116,7 +117,7 @@ export default class App extends React.Component {
   deleteExperienceItem = (e, callback) => {
     if(this.state.experienceList.length > 1)
       this.setState({
-        experienceList: this.state.experienceList.filter(x => x.id !== e.target.parentNode.parentNode.id)
+        experienceList: this.state.experienceList.filter(x => x.id !== e.currentTarget.parentNode.parentNode.id)
       });
     else 
       this.setState({
@@ -129,7 +130,7 @@ export default class App extends React.Component {
   deleteEducationItem = (e, callback) => {
     if(this.state.educationList.length > 1)
       this.setState({
-        educationList: this.state.educationList.filter(x => x.id !== e.target.parentNode.parentNode.id)
+        educationList: this.state.educationList.filter(x => x.id !== e.currentTarget.parentNode.parentNode.id)
       });
     else
       this.setState({
@@ -166,7 +167,7 @@ export default class App extends React.Component {
     return (
       <div className="">
         <div className="header">
-          <h1 className="logo">cv-builder</h1>
+          <h1 className="logo"><i className="fa-solid fa-file-pen"></i> cv-builder</h1>
         </div>
         <div className="row content">
             <div className='form-container'>

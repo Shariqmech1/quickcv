@@ -39,10 +39,16 @@ const Personal = ({info, onChange, buttons}) => {
                         <input type="text" id="email" name="email" placeholder='e.g. sualgoodman@gmail.com' onChange={onChange} value={info.email}/>
                     </div> 
                 </div>
+                <div className="row">
+                    <div className="col-12">
+                        <label htmlFor="summary">Proffesional Summary</label>
+                        <textarea name="summary" id="summary" rows="10" onChange={onChange} value={info.summary}></textarea>
+                    </div>
+                </div>
             </form>
             <div className="buttons-row">
-                <button onClick={buttons.backPage} disabled>Back</button>
-                <button onClick={buttons.nextPage}>Next</button>
+                <button className="back-btn" onClick={buttons.backPage} disabled>Back</button>
+                <button className="next-btn" onClick={buttons.nextPage}>Next</button>
             </div>
         </div>
     );

@@ -9,8 +9,8 @@ const ExperienceItem = ({info, openEdit, deleteItem}) => {
                 <p>{info.startMonth} {info.startYear} — {info.current ? "Current" : info.endMonth + " " + info.endYear }</p>
             </div>
             <div>
-                <button onClick={openEdit}>Edit</button>
-                <button onClick={deleteItem}>Delete</button>
+                <a onClick={openEdit}><i className="fa-solid fa-pen-to-square"></i></a>
+                <a onClick={deleteItem}><i className="fa-solid fa-trash" ></i></a>
             </div>
         </div>
     );

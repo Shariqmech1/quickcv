@@ -8,27 +8,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// Components:
-// Wrapper - current form, preview, back button, & next button
-// Personal Form
-// Experience Wrapper - experience list, edit, add, delete
-// Experience Item Form
-// Education Wrapper - edication list, edit, add, delete
-// Education Item Form
-// All Done - save pdf
-
-
-// TODO:
-// add descriptions
-// clean code
-// icons for buttons
-// move save button
-
-// DONE:
-// delete item
-// date dropdowns
-// current functionality
-// download pdf
-// style form
-// style preview

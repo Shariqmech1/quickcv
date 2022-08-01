@@ -13,7 +13,7 @@ class Education extends React.Component {
 
     openEdit = (e) => {
         this.setState({
-            editID: e.target.parentNode.parentNode.id
+            editID: e.currentTarget.parentNode.parentNode.id
         });
     }
     closeEdit = (e) => {
@@ -53,11 +53,11 @@ class Education extends React.Component {
                         return <EducationItem info={item} openEdit={this.openEdit} deleteItem={this.deleteItem} key={item.id} />
                 })}
                 <div className="buttons-row">
-                    <button onClick={buttons.backPage}>Back</button>
-                    <button onClick={this.addItem}>Add Education</button>
+                    <button className="back-btn" onClick={buttons.backPage}>Back</button>
+                    <button className="add-btn" onClick={this.addItem}><i className="fa-solid fa-plus"></i>Add Education</button>
                     <ReactToPrint
                         trigger={() => {
-                            return <button>Print PDF</button>;
+                            return <button className="next-btn"><i className="fa-solid fa-print"></i>Print PDF</button>;
                         }}
                         content={() => this.props.previewRef}
                     />

@@ -15,6 +15,8 @@ class Print extends React.Component {
             zip: personal.zip == "" ? "12345" : personal.zip,
             phone: personal.phone == "" ? "505-503-4455" : personal.phone,
             email: personal.email == "" ? "sualgoodman@gmail.com" : personal.email,
+            summary: personal.summary == "" ? `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.` : personal.summary,
         };
         const experienceExample = {
             title: "Lawyer",
@@ -32,7 +34,7 @@ class Print extends React.Component {
             school: "University of American Samoa's",
             city: "Albuquerque",
             state: "New Mexico",
-            degree: "",
+            degree: "J.D.",
             field: "Law",
             gradMonth: "Aug",
             gradYear: "2004",
@@ -44,38 +46,57 @@ class Print extends React.Component {
         return (
             <div>
                 <div className="print-content">
-                    <h1>{personal.firstName} {personal.lastName}</h1>
-                    <p>{personal.email} | {personal.phone}</p>
+                <h1>{personal.firstName} {personal.lastName}</h1>
                     <p>{personal.city}, {personal.state} {personal.zip}</p>
+                    <p>{personal.phone}</p>
+                    <p>{personal.email}</p>
+                    <br />
+                    <h2>Proffesional Summary</h2>
+                    <hr/>
+                    <p>{personal.summary}</p>
                     <br />
                     <h2>Experience</h2>
+                    <hr/>
                     <ul>
                         {isExperienceEmpty 
                             ? <li className="">
-                                <p>{experienceExample.title} | {experienceExample.employer} - {experienceExample.city}, {experienceExample.state}</p>
-                                <p>{experienceExample.startMonth} {experienceExample.startYear} - {experienceExample.endMonth} {experienceExample.endYear}</p>
+                                <div className="date-row">  
+                                    <p><b>{experienceExample.title}</b> | {experienceExample.employer}</p>
+                                    <p>{experienceExample.startMonth} {experienceExample.startYear} ⁠— {experienceExample.endMonth} {experienceExample.endYear}</p>
+                                </div>
+                                <p>{experienceExample.city}, {experienceExample.state}</p>
                             </li>
                             : experienceList.map(item => 
                             <li className="" key={item.id}>
-                                <p>{item.title} | {item.employer} - {item.city}, {item.state}</p>
-                                <p>{item.startMonth} {item.startYear} - {item.current ? "Current" : item.endMonth + " " + item.endYear }</p>
+                                <div className="date-row">
+                                    <p><b>{item.title}</b> | {item.employer}</p>
+                                    <p>{item.startMonth} {item.startYear} ⁠— {item.current ? "Current" : item.endMonth + " " + item.endYear }</p>
+                                </div>
+                                <p>{item.city}, {item.state}</p>
                             </li>)
                         }
                     </ul>
                     <br />
                     <h2>Education</h2>
+                    <hr/>
                     <ul>
                         {isEducationEmpty
                         ? <li>
-                            <p>{educationExample.school} - {educationExample.city}, {educationExample.state}</p>
+                            <div className="date-row">
+                                <p><b>{educationExample.school}</b></p>
+                                <p>{educationExample.gradMonth} {educationExample.gradYear}</p>
+                            </div>
+                            <p>{educationExample.city}, {educationExample.state}</p>
                             <p>{educationExample.degree} {educationExample.field}</p>
-                            <p>{educationExample.gradMonth} {educationExample.gradYear}</p>
                         </li>
                         : educationList.map(item => 
                         <li key={item.id}>
-                            <p>{item.school} - {item.city}, {item.state}</p>
+                            <div className="date-row">
+                                <p><b>{item.school}</b></p>
+                                <p>{item.current ? "Current" : item.gradMonth + " " + item.gradYear }</p>
+                            </div>
+                            <p>{item.city}, {item.state}</p>
                             <p>{item.degree} {item.field}</p>
-                            <p>{item.current ? "Current" : item.gradMonth + " " + item.gradYear }</p>
                         </li>)
                         }
                     </ul>

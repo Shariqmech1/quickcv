@@ -12,7 +12,7 @@ class Experience extends React.Component {
 
     openEdit = (e) => {
         this.setState({
-            editID: e.target.parentNode.parentNode.id
+            editID: e.currentTarget.parentNode.parentNode.id
         });
     }
 
@@ -54,9 +54,9 @@ class Experience extends React.Component {
                         return <ExperienceItem info={item} openEdit={this.openEdit} deleteItem={this.deleteItem} key={item.id} />
                 })}
                 <div className="buttons-row">
-                    <button onClick={buttons.backPage}>Back</button>
-                    <button onClick={this.addItem}>Add Experiece</button>
-                    <button onClick={buttons.nextPage}>Next</button>
+                    <button className="back-btn" onClick={buttons.backPage}>Back</button>
+                    <button className="add-btn" onClick={this.addItem}><i className="fa-solid fa-plus"></i>Add Experiece</button>
+                    <button className="next-btn" onClick={buttons.nextPage}>Next</button>
                 </div>              
             </div>
         );

@@ -1,5 +1,5 @@
 import React from 'react';
-import DateSelect from './DateSelect';
+import Select from './Select';
 
 const EducationForm = ({info, onChange, closeEdit}) => {
     return (
@@ -21,7 +21,7 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                 </div> 
                 <div className="col-6">
                     <label htmlFor="degree">Degree</label>
-                    <DateSelect type="degree" name="degree" value={info.degree} onChange={onChange}/>
+                    <Select type="degree" name="degree" value={info.degree} onChange={onChange}/>
                 </div>
             </div>
             <div className="row">
@@ -31,11 +31,11 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                 </div>
                 <div className="col-3">
                     <label>Graduation Date</label>
-                    <DateSelect type="month" name="gradMonth" value={info.gradMonth} onChange={onChange} disabled={info.current}/>
+                    <Select type="month" name="gradMonth" value={info.gradMonth} onChange={onChange} disabled={info.current}/>
                 </div>
                 <div className="col-3">
                     <label>&nbsp;</label>
-                    <DateSelect type="year" name="gradYear" value={info.gradYear} onChange={onChange} disabled={info.current}/>
+                    <Select type="year" name="gradYear" value={info.gradYear} onChange={onChange} disabled={info.current}/>
                 </div>
             </div>
             <div className="row">
@@ -46,7 +46,7 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                 </div>
             </div>
             <div>
-                <button type="submit">Save</button>
+                <button className="save-btn" type="submit">Save</button>
             </div>
         </form>
     );
