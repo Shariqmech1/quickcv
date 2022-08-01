@@ -3,7 +3,7 @@ import DateSelect from './DateSelect';
 
 const EducationForm = ({info, onChange, closeEdit}) => {
     return (
-        <form id={info.id} onSubmit={closeEdit}>
+        <form className="item-form" id={info.id} onSubmit={closeEdit}>
             <div className="row">
                 <div className="col-6">
                     <label htmlFor="school">School</label>
@@ -45,7 +45,9 @@ const EducationForm = ({info, onChange, closeEdit}) => {
                     <label htmlFor="current">I currntly attend here</label>
                 </div>
             </div>
-            <button>Save</button>
+            <div>
+                <button type="submit">Save</button>
+            </div>
         </form>
     );
 }

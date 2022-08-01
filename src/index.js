@@ -20,9 +20,6 @@ root.render(
 
 
 // TODO:
-// download pdf
-// style form
-// style preview
 // add descriptions
 // clean code
 // icons for buttons
@@ -32,3 +29,6 @@ root.render(
 // delete item
 // date dropdowns
 // current functionality
+// download pdf
+// style form
+// style preview

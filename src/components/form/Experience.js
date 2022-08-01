@@ -12,7 +12,7 @@ class Experience extends React.Component {
 
     openEdit = (e) => {
         this.setState({
-            editID: e.target.parentNode.id
+            editID: e.target.parentNode.parentNode.id
         });
     }
 
@@ -46,6 +46,7 @@ class Experience extends React.Component {
 
         return (
             <div className="">
+                <h2 className='form-title'>Experience</h2>
                 {list.map(item => {
                     if(item.id == this.state.editID)
                         return <ExperienceForm info={item} onChange={onChange} closeEdit={this.closeEdit} key={item.id} />

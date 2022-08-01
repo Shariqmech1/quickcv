@@ -12,7 +12,42 @@ li {
     list-style-type: none;
 }
 
-/* --------------------- */
+button {
+    padding: 5px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 5px;
+}
+input[type="text"], input[type="tel"] {
+    display: block;
+    width: 100%;
+}
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+}
 
 .row {
     display: flex;
@@ -29,20 +64,113 @@ li {
     max-width: 25%;
 }
 
+/* --------------------- */
+
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid black;
+}
+
+.header > h1 {
+    text-align: center;
+}
+
+.content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* --------- PREVIEW ------------ */
+
+.preview-container {
+    padding: 20px;
+    width: 500px;
+}  
+.preview-border {
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px grey;
+    position: relative;
+}
+.preview-border::before {
+    content: "";
+    display: block;
+    padding-bottom: 140%;
+}
+.preview-content {
+    padding: 20px;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.preview-content h1 {
+    font-size: 1.2rem;
+}
+.preview-content p {
+    font-size: .6rem;
+}
+.preview-content h2 {
+    font-size: 1rem;
+}
+
+/* --------- FORM ---------- */
+
+.form-container {
+    padding: 20px;
+    flex: 1 1 auto;
+    min-width: 600px;
+}
+.form-container > span {
+    
+}
+
+.form-title {
+    margin-bottom: 20px;
+}
+
 .buttons-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 40px;
 }
 
-.form-container {
-    padding: 20px;
+form > .row {
+    padding: 10px 0;
+    margin: 0 -10px;
 }
 
-.preview-container {
+form .col-6, form .col-3 {
+    padding: 0 10px;
+}
+
+.item-form {
     padding: 20px;
-}  
-.preview-container > div {
-    border: 1px solid black;
-    padding: 40px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.item-form button {
+    float: right;
+}
+
+.item {
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------- PRINT ---------- */
+
+@media screen {
+	.print-container {
+		display: none;
+	}
+}
+@page { 
+    margin: 25px !important; 
 }

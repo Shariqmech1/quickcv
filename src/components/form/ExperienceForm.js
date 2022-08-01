@@ -3,7 +3,7 @@ import DateSelect from './DateSelect';
 
 const ExperienceForm = ({info, onChange, closeEdit}) => {
     return (
-        <form id={info.id} onSubmit={closeEdit}>
+        <form className="item-form" id={info.id} onSubmit={closeEdit}>
             <div className="row">
                 <div className="col-6">
                     <label htmlFor="title">Job Title</label>
@@ -49,7 +49,9 @@ const ExperienceForm = ({info, onChange, closeEdit}) => {
                     <label htmlFor="current">I currntly work here</label>
                 </div>
             </div>
-            <button type="submit">Save</button>
+            <div>
+                <button type="submit">Save</button>
+            </div>
         </form>
     );
 }

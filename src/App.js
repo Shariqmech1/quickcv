@@ -4,8 +4,8 @@ import Education from './components/form/Education';
 import Experience from './components/form/Experience';
 import Personal from './components/form/Personal';
 import Preview from './components/Preview';
+import Print from './components/Print';
 import './styles/App.css';
-import './styles/Forms.css';
 
 const emptyExperience = {
   title: "",
@@ -116,7 +116,7 @@ export default class App extends React.Component {
   deleteExperienceItem = (e, callback) => {
     if(this.state.experienceList.length > 1)
       this.setState({
-        experienceList: this.state.experienceList.filter(x => x.id !== e.target.parentNode.id)
+        experienceList: this.state.experienceList.filter(x => x.id !== e.target.parentNode.parentNode.id)
       });
     else 
       this.setState({
@@ -129,7 +129,7 @@ export default class App extends React.Component {
   deleteEducationItem = (e, callback) => {
     if(this.state.educationList.length > 1)
       this.setState({
-        educationList: this.state.educationList.filter(x => x.id !== e.target.parentNode.id)
+        educationList: this.state.educationList.filter(x => x.id !== e.target.parentNode.parentNode.id)
       });
     else
       this.setState({
@@ -151,8 +151,8 @@ export default class App extends React.Component {
     });
   }
 
-  downloadPDF = () => {
-
+  setComponentRef = (ref) => {
+    this.componentRef = ref;
   }
   
   render() {
@@ -164,21 +164,24 @@ export default class App extends React.Component {
     }
 
     return (
-      <div className="row">
-        <div className="col-6">
-          <div className='form-container'>
-            {currentPage == 1 && <Personal info={personal} onChange={this.onPersonalChange} buttons={buttons}/>}
-            {currentPage == 2 && <Experience list={experienceList} onChange={this.onExperienceChange} addItem={this.addExperienceItem} deleteItem={this.deleteExperienceItem} buttons={buttons}/>}
-            {currentPage == 3 && <Education list={educationList} onChange={this.onEducationChange} addItem={this.addEducationItem} deleteItem={this.deleteEducationItem} buttons={buttons}/>}
-          </div>
+      <div className="">
+        <div className="header">
+          <h1 className="logo">cv-builder</h1>
         </div>
-        <div className="col-6">
-          <div className='preview-container'>
-            <Preview info={this.state}/>
-          </div>
+        <div className="row content">
+            <div className='form-container'>
+              {currentPage == 1 && <Personal info={personal} onChange={this.onPersonalChange} buttons={buttons}/>}
+              {currentPage == 2 && <Experience list={experienceList} onChange={this.onExperienceChange} addItem={this.addExperienceItem} deleteItem={this.deleteExperienceItem} buttons={buttons}/>}
+              {currentPage == 3 && <Education list={educationList} onChange={this.onEducationChange} addItem={this.addEducationItem} deleteItem={this.deleteEducationItem} buttons={buttons} previewRef={this.componentRef}/>}
+            </div>
+            <div className='preview-container'>
+              <Preview info={this.state}/>   
+            </div>
+            <div className="print-container">
+              <Print info={this.state} ref={this.setComponentRef}/>
+            </div>
         </div>
       </div>
-      
     );
   }
 }

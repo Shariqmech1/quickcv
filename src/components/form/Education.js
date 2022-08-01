@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactToPrint from 'react-to-print';
 import EducationForm from './EducationForm';
 import EducationItem from './EducationItem';
 
@@ -12,7 +13,7 @@ class Education extends React.Component {
 
     openEdit = (e) => {
         this.setState({
-            editID: e.target.parentNode.id
+            editID: e.target.parentNode.parentNode.id
         });
     }
     closeEdit = (e) => {
@@ -40,10 +41,11 @@ class Education extends React.Component {
     }
     
     render() {
-        const {list, onChange, buttons} = this.props;
+        const {list, onChange, buttons, previewRef} = this.props;
 
         return (
             <div>
+                <h2 className='form-title'>Education</h2>
                 {list.map(item => {
                     if(item.id == this.state.editID)
                         return <EducationForm info={item} onChange={onChange} closeEdit={this.closeEdit} key={item.id} />
@@ -53,7 +55,12 @@ class Education extends React.Component {
                 <div className="buttons-row">
                     <button onClick={buttons.backPage}>Back</button>
                     <button onClick={this.addItem}>Add Education</button>
-                    <button onClick={buttons.downloadPDF}>Download</button>
+                    <ReactToPrint
+                        trigger={() => {
+                            return <button>Print PDF</button>;
+                        }}
+                        content={() => this.props.previewRef}
+                    />
                 </div>
             </div>
         );

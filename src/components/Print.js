@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Preview extends React.Component {
+class Print extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -42,8 +42,8 @@ class Preview extends React.Component {
 
 
         return (
-            <div className='preview-border'>
-                <div className="preview-content">
+            <div>
+                <div className="print-content">
                     <h1>{personal.firstName} {personal.lastName}</h1>
                     <p>{personal.email} | {personal.phone}</p>
                     <p>{personal.city}, {personal.state} {personal.zip}</p>
@@ -84,4 +84,4 @@ class Preview extends React.Component {
         ); 
     }
 }
-export default Preview;
+export default Print;

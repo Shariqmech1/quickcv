@@ -3,6 +3,7 @@ import React from 'react';
 const Personal = ({info, onChange, buttons}) => {
     return (
         <div className="">
+            <h2 className='form-title'>Personal</h2>
             <form>
                 <div className="row">
                     <div className="col-6">
