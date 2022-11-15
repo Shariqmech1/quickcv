@@ -1,46 +1,43 @@
 import React from 'react';
 
 class Print extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         let {personal, experienceList, educationList} = this.props.info;
         personal = {
-            firstName: personal.firstName + personal.lastName == "" ? "Saul" : personal.firstName,
-            lastName: personal.firstName + personal.lastName == "" ? "Goodman" : personal.lastName,
-            city: personal.city == "" ? "Albuquerque" : personal.city,
-            state: personal.state == "" ? "New Mexico" : personal.state,
-            zip: personal.zip == "" ? "12345" : personal.zip,
-            phone: personal.phone == "" ? "505-503-4455" : personal.phone,
-            email: personal.email == "" ? "sualgoodman@gmail.com" : personal.email,
-            summary: personal.summary == "" ? `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.` : personal.summary,
+            firstName: personal.firstName + personal.lastName === "" ? "xxx" : personal.firstName,
+            lastName: personal.firstName + personal.lastName === "" ? "xxx" : personal.lastName,
+            city: personal.city === "" ? "Nagpur" : personal.city,
+            state: personal.state === "" ? "Maharashtra" : personal.state,
+            zip: personal.zip === "" ? "12345" : personal.zip,
+            phone: personal.phone === "" ? "123456789" : personal.phone,
+            email: personal.email === "" ? "xxxx@gmail.com" : personal.email,
+            summary: personal.summary === "" ? `Enthusiastic and self-motivated web designer with 3+ years of experience. Eager to join WebHouse to bring top-class frontend development, UX, and visual design skills.
+            In previous roles redesigned a SaaS website that reduced CAC by 50%, and implemented an SEO-optimized design that boosted traffic by 300%.` : personal.summary,
         };
         const experienceExample = {
-            title: "Lawyer",
-            employer: "HH&M Law Firm",
-            city: "Albuquerque",
-            state: "New Mexico",
+            title: "Software Engineer",
+            employer: "Soal",
+            city: "Nagpur",
+            state: "Maharashtra",
             startMonth: "Jan",
-            startYear: "2001",
-            endMonth: "Aug",
-            endYear: "2004",
+            startYear: "2022",
+            endMonth: "Dec",
+            endYear: "2022",
         };
         const isExperienceEmpty = experienceList[0].title + experienceList[0].employer + experienceList[0].city + experienceList[0].state + experienceList[0].startMonth
-        + experienceList[0].startYear + experienceList[0].endMonth + experienceList[0].endYear == "" && !experienceList[0].current;
+        + experienceList[0].startYear + experienceList[0].endMonth + experienceList[0].endYear === "" && !experienceList[0].current;
         const educationExample = {
-            school: "University of American Samoa's",
-            city: "Albuquerque",
-            state: "New Mexico",
-            degree: "J.D.",
-            field: "Law",
-            gradMonth: "Aug",
-            gradYear: "2004",
+            school: "University of Nagpur",
+            city: "Nagpur",
+            state: "Maharashtra",
+            degree: "Engineering",
+            field: "IT",
+            gradMonth: "June",
+            gradYear: "2020",
         };
         const isEducationEmpty = educationList[0].school + educationList[0].city + educationList[0].state + educationList[0].degree
-        + educationList[0].field + educationList[0].gradMonth + educationList[0].gradYear == "" && !educationList[0].current;
+        + educationList[0].field + educationList[0].gradMonth + educationList[0].gradYear === "" && !educationList[0].current;
 
 
         return (

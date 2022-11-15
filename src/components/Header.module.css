@@ -1,0 +1,56 @@
+.header {
+  flex-wrap: wrap;
+  display: inline-flex;
+  margin-bottom: auto;
+  justify-content: space-around;
+  list-style: none;
+  text-align: center;
+  position: relative;
+  left: 350px;
+  float: left;
+  margin-right: 250px;
+}
+.current {
+  display: inline-block;
+  list-style: none;
+  flex-direction: column;
+}
+.h1 {
+  font-size: 80.8px;
+  animation-fill-mode: both;
+  animation-duration: 1000ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  opacity: 1;
+  animation-name: react-reveal-119345332545824-1;
+  text-align: center;
+  margin-top: 150px;
+  color: white;
+}
+.description {
+  font-size: 20.8px;
+  animation-fill-mode: both;
+  animation-duration: 1000ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  opacity: 1;
+  animation-name: react-reveal-119345332545824-1;
+  text-align: center;
+
+  color: white;
+}
+.description2 {
+  font-size: 15.8px;
+  animation-fill-mode: both;
+  animation-duration: 1000ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  opacity: 1;
+  animation-name: react-reveal-119345332545824-1;
+  text-align: center;
+
+  color: white;
+}
+.smoothscroll {
+  text-decoration: none;
+}

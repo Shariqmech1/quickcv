@@ -3,12 +3,12 @@ import React from 'react';
 const Personal = ({info, onChange, buttons}) => {
     return (
         <div className="">
-            <h2 className='form-title'>Personal</h2>
+            <h2 className='form-title'>Personal Information</h2>
             <form>
                 <div className="row">
                     <div className="col-6">
                         <label htmlFor="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" placeholder='e.g. Saul' onChange={onChange} value={info.firstName}/>
+                        <input type="text" id="firstName" name="firstName" placeholder='e.g. Sagar' onChange={onChange} value={info.firstName}/>
                     </div>
                     <div className="col-6">
                         <label htmlFor="lastName">Last Name</label>
@@ -18,11 +18,11 @@ const Personal = ({info, onChange, buttons}) => {
                 <div className="row">
                     <div className="col-6">
                         <label htmlFor="city">City</label>
-                        <input type="text" id="city" name="city" placeholder='e.g. Albuquerque' onChange={onChange} value={info.city}/>
+                        <input type="text" id="city" name="city" placeholder='e.g. Nagpur' onChange={onChange} value={info.city}/>
                     </div>
                     <div className="col-3">
                         <label htmlFor="state">State</label>
-                        <input type="text" id="state" name="state" placeholder='e.g. New Mexico' onChange={onChange} value={info.state}/>
+                        <input type="text" id="state" name="state" placeholder='e.g. Maharashtra' onChange={onChange} value={info.state}/>
                     </div>
                     <div className="col-3">
                         <label htmlFor="zip">Zip</label>
@@ -32,11 +32,11 @@ const Personal = ({info, onChange, buttons}) => {
                 <div className="row">
                     <div className="col-6">
                         <label htmlFor="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder='e.g. 505-503-4455' onChange={onChange} value={info.phone}/>
+                        <input type="tel" id="phone" name="phone" placeholder='e.g. 123456789' onChange={onChange} value={info.phone}/>
                     </div>
                     <div className="col-6">
                         <label htmlFor="email">Email</label>
-                        <input type="text" id="email" name="email" placeholder='e.g. sualgoodman@gmail.com' onChange={onChange} value={info.email}/>
+                        <input type="text" id="email" name="email" placeholder='e.g. ....@gmail.com' onChange={onChange} value={info.email}/>
                     </div> 
                 </div>
                 <div className="row">

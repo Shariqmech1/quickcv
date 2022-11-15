@@ -23,7 +23,7 @@ class Education extends React.Component {
         });
     }
 
-    addItem = (e) => {
+    addItem = () => {
         const callback = () => this.setState({
             editID: this.props.list[this.props.list.length-1].id
         });
@@ -41,13 +41,13 @@ class Education extends React.Component {
     }
     
     render() {
-        const {list, onChange, buttons, previewRef} = this.props;
+        const {list, onChange, buttons} = this.props;
 
         return (
             <div>
                 <h2 className='form-title'>Education</h2>
                 {list.map(item => {
-                    if(item.id == this.state.editID)
+                    if(item.id === this.state.editID)
                         return <EducationForm info={item} onChange={onChange} closeEdit={this.closeEdit} key={item.id} />
                     else
                         return <EducationItem info={item} openEdit={this.openEdit} deleteItem={this.deleteItem} key={item.id} />

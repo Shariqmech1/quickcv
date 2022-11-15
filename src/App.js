@@ -1,11 +1,16 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import uniqid from 'uniqid';
-import Education from './components/form/Education';
-import Experience from './components/form/Experience';
-import Personal from './components/form/Personal';
-import Preview from './components/Preview';
-import Print from './components/Print';
+// import  { useEffect, useState } from "react";
+// import { auth } from "./firebase";
 import './styles/App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/pages/Home';
+import MyResume from './components/pages/MyResume';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
+
 
 const emptyExperience = {
   title: "",
@@ -74,7 +79,7 @@ export default class App extends React.Component {
         ...list.slice(0, index),
         {
           ...list[index],
-          [e.target.name]: (e.target.type == 'checkbox') ? e.target.checked : e.target.value
+          [e.target.name]: (e.target.type === 'checkbox') ? e.target.checked : e.target.value
         },
         ...list.slice(index + 1),
       ]
@@ -89,7 +94,7 @@ export default class App extends React.Component {
         ...list.slice(0, index),
         {
           ...list[index],
-          [e.target.name]: (e.target.type == 'checkbox') ? e.target.checked : e.target.value
+          [e.target.name]: (e.target.type === 'checkbox') ? e.target.checked : e.target.value
         },
         ...list.slice(index + 1),
       ]
@@ -156,33 +161,39 @@ export default class App extends React.Component {
     this.componentRef = ref;
   }
   
+  
   render() {
-    const {personal, experienceList, educationList, currentPage} = this.state;
-    const buttons = {
-      backPage: this.backPage, 
-      nextPage: this.nextPage, 
-      downloadPDF: this.downloadPDF
-    }
+    
+  //   const [userName, setUserName] = useState("");
+
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUserName(user.displayName);
+  //     } else setUserName("");
+  //   });
+  // },);
+    // const {personal, experienceList, educationList, currentPage} = this.state;
+    // const buttons = {
+    //   backPage: this.backPage, 
+    //   nextPage: this.nextPage, 
+    //   downloadPDF: this.downloadPDF
+    // }
 
     return (
       <div className="">
-        <div className="header">
-          <h1 className="logo"><i className="fa-solid fa-file-pen"></i> cv-builder</h1>
-        </div>
-        <div className="row content">
-            <div className='form-container'>
-              {currentPage == 1 && <Personal info={personal} onChange={this.onPersonalChange} buttons={buttons}/>}
-              {currentPage == 2 && <Experience list={experienceList} onChange={this.onExperienceChange} addItem={this.addExperienceItem} deleteItem={this.deleteExperienceItem} buttons={buttons}/>}
-              {currentPage == 3 && <Education list={educationList} onChange={this.onEducationChange} addItem={this.addEducationItem} deleteItem={this.deleteEducationItem} buttons={buttons} previewRef={this.componentRef}/>}
-            </div>
-            <div className='preview-container'>
-              <Preview info={this.state}/>   
-            </div>
-            <div className="print-container">
-              <Print info={this.state} ref={this.setComponentRef}/>
-            </div>
-        </div>
-      </div>
-    );
-  }
+      <Router>
+        <Routes>
+          <Route  path='/' exact element={<Home/>} />
+          <Route  path='/MyResume' exact element={<MyResume/>} />
+          <Route  path='/Login' exact element={<Login/>} />
+          <Route  path='/Signup' exact element={<Signup/>} />
+        </Routes>
+      </Router>
+    </div>
+     );
 }
+}
+
+
+     

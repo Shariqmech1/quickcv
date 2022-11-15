@@ -48,7 +48,7 @@ class Experience extends React.Component {
             <div className="">
                 <h2 className='form-title'>Experience</h2>
                 {list.map(item => {
-                    if(item.id == this.state.editID)
+                    if(item.id === this.state.editID)
                         return <ExperienceForm info={item} onChange={onChange} closeEdit={this.closeEdit} key={item.id} />
                     else
                         return <ExperienceItem info={item} openEdit={this.openEdit} deleteItem={this.deleteItem} key={item.id} />
@@ -64,8 +64,3 @@ class Experience extends React.Component {
 }
 export default Experience;
 
-// state w/ edit: ""
-// on edit click -> set state.edit to form id
-// map & if item.id == edit.id -> pass edit={true}
-// in item, if edit -> display form
-// else ->  display list item

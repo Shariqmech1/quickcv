@@ -7,21 +7,21 @@ const ExperienceForm = ({info, onChange, closeEdit}) => {
             <div className="row">
                 <div className="col-6">
                     <label htmlFor="title">Job Title</label>
-                    <input type="text" id="title" name="title" placeholder='e.g. Lawyer' value={info.title} onChange={onChange}/>
+                    <input type="text" id="title" name="title" placeholder='e.g. Engineer' value={info.title} onChange={onChange}/>
                 </div>
                 <div className="col-6">
                     <label htmlFor="employer">Employer</label>
-                    <input type="text" id="employer" name="employer" placeholder='e.g. HH&M Law Firm' value={info.employer} onChange={onChange}/>
+                    <input type="text" id="employer" name="employer" placeholder='e.g. Soal' value={info.employer} onChange={onChange}/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-6">
                     <label htmlFor="city">City</label>
-                    <input type="text" id="city" name="city" placeholder='e.g. Albuquerque' value={info.city} onChange={onChange}/>
+                    <input type="text" id="city" name="city" placeholder='e.g. Nagpur' value={info.city} onChange={onChange}/>
                 </div>
                 <div className="col-6">
                     <label htmlFor="state">State</label>
-                    <input type="text" id="state" name="state" placeholder='e.g. New Mexico' value={info.state} onChange={onChange}/>
+                    <input type="text" id="state" name="state" placeholder='e.g. Maharashtra' value={info.state} onChange={onChange}/>
                 </div>
             </div>
             <div className="row">

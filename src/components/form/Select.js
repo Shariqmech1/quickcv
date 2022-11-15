@@ -12,9 +12,9 @@ const Select = ({type, name, value, onChange, disabled}) => {
 
     return (
         <select type="select" id={name} name={name} value={value} onChange={onChange} disabled={disabled}>
-            {type == 'month' && <option value="" disabled>Month</option>} {type == 'month' && monthOptions}
-            {type == 'year' && <option value="" disabled>Year</option>} {type == 'year' && yearOptions}
-            {type == 'degree' && <option value="" disabled>Select</option>} {type == 'degree' && degreeOptions}
+            {type === 'month' && <option value="" disabled>Month</option>} {type === 'month' && monthOptions}
+            {type === 'year' && <option value="" disabled>Year</option>} {type === 'year' && yearOptions}
+            {type === 'degree' && <option value="" disabled>Select</option>} {type === 'degree' && degreeOptions}
         </select>
     );
 }
