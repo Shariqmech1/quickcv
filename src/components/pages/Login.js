@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import ParticlesBg from "particles-bg";
 import InputControl from "../InputControl";
-import { auth } from "../../firebase";
-import styles from './Login.module.css';
+import { auth, provider } from "../../firebase";
+import styles from "./Login.module.css";
 function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
@@ -33,45 +33,42 @@ function Login() {
   };
   return (
     <>
-    
       <div className={styles.container}>
-      <ParticlesBg type="circle" bg={true} />
+        <ParticlesBg type="circle" bg={true} />
 
-     <div className={styles.innerBox}>
-       <h1 className={styles.heading}>Login</h1>
+        <div className={styles.innerBox}>
+          <h1 className={styles.heading}>Login</h1>
 
-       <InputControl
-         label="Email"
-         onChange={(event) =>
-           setValues((prev) => ({ ...prev, email: event.target.value }))
-         }
-         placeholder="Enter email address"
-       />
-       <InputControl
-         label="Password"
-         onChange={(event) =>
-           setValues((prev) => ({ ...prev, pass: event.target.value }))
-         }
-         placeholder="Enter Password"
-       />
+          <InputControl
+            label="Email"
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, email: event.target.value }))
+            }
+            placeholder="Enter email address"
+          />
+          <InputControl
+            label="Password"
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, pass: event.target.value }))
+            }
+            placeholder="Enter Password"
+          />
 
-       <div className={styles.footer}>
-         <b className={styles.error}>{errorMsg}</b>
-         <button disabled={submitButtonDisabled} onClick={handleSubmission}>
-           Login
-         </button>
-         <p>
-           Don't have an account?{" "}
-           <span>
-             <Link to="/signup">Signup</Link>
-           </span>
-         </p>
-       
-       </div>
-     </div>
-   </div>
+          <div className={styles.footer}>
+            <b className={styles.error}>{errorMsg}</b>
+            <button disabled={submitButtonDisabled} onClick={handleSubmission}>
+              Login
+            </button>
+            <p>
+              Don't have an account?{" "}
+              <span>
+                <Link to="/signup">Signup</Link>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
     </>
-   
   );
 }
 
